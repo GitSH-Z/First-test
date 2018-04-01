@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<!--[if IE]>尽量不要用ie<!-->
+<html>
+	<head>
+		<title>抽号数小程序</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta charset="utf-8"/>
+	</head>
+	<style>
+		body{
+			background-color:#60f9de;
+			text-align:center;
+		}
+		#title{
+			border:none;
+			width:400px;
+			font-size:50px;
+			color:white;
+			text-align:center;
+			border-radius:25px;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:50px;
+			background-color:#80f9be;
+		}
+		#divNum{
+			color:orange;
+			font-size:220px;
+			height:200px;
+			margin-top:-50px;
+		}
+		.input{
+			border-radius:5px;
+			width:50px;
+		}
+		#start_{
+			width:350px;
+			height:80px;
+			font-size:50px;
+			border-radius:25px;
+			border:none;
+			background-color:#80e9fe;
+			margin-top:10px;
+		}
+		#start_:hover{
+			background-color:#6094fe;
+		}
+		#start_:hover:active{
+			background-color:#66afdd;
+		}
+		#start_:active{
+			background-color:#66afdd;
+		}
+		#about{
+			height:50px;
+			width:100%;
+			text-align:center;
+			color:white;
+			
+			bottom:20px;
+			z-index:10;
+			position:absolute;
+		}
+	</style>
+	<script>
+		var Mins=1;
+		var Maxs=50;
+		function onblur_min()
+		{
+			var Mini=document.getElementById('Min').value;
+			if(Mini<0)
+			{
+				alert("亲，最小值不能小于零哦！");
+				document.getElementById('Min').value=Min;
+			}
+			if(Mini>=Maxs)
+			{
+				alert("亲，最小值不能大于等于最大值哦！");
+				document.getElementById('Min').value=Min;
+			}
+			else Mins=Mini;
+		}
+		function onblur_max()
+		{
+			var Maxi=document.getElementById('Max').value;
+			if(Maxi<=Mins)
+			{
+				alert("亲，最大值不能小于等于最小值哦!");
+				document.getElementById('Max').value=Max;
+			}
+			else Maxs=Maxi;
+		}
+		
+		function Start_()
+		{
+			document.getElementById('start_').disabled=true;
+			var i=0;
+			var t=setInterval(function(){ 
+					i++;
+					if(i>=100)
+					{
+						clearInterval(t);
+						if(document.getElementById('start_').disabled)document.getElementById('start_').disabled=false;
+					}
+					var num=0;
+					while(num<Mins)
+					{
+						num=Math.ceil(Math.random()*Maxs);
+					}
+					document.getElementById('divNum').innerHTML=num; 
+				},10);
+			
+			
+		}
+		
+	</script>
+	<body>
+		<div id="title">
+			<p>抽号数啦！😁</p>
+		</div>
+		<div id="divNum">
+			准备啦！
+		</div>
+		<div style="margin-top:60px;">
+			范围：
+			<input class="input" id="Min" type="number" name="Max" value="1" onblur="javascript:onblur_min();"/>
+			-
+			<input class="input" id="Max" type="number" name="Min" value="50" onblur="javascript:onblur_max();"/>
+		</div>
+		<button id="start_" name="start_" onclick="javascript:Start_();">开始</button>
+		<div id="about">
+			<hr/>
+			Copyright @ZSH SCUEC<br/>
+			注意：使用ie浏览器请允许执行脚本
+		</div>
+	</body>
+</html>
