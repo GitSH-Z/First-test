@@ -4,4 +4,5 @@
 默认范围是1-50，不能设置为负数，并且数值不能超过4294967296即2^32。<br/>
 <br/>
 运行截图：<br/>
-<img src="https://github.com/GitSH-Z/First-test/blob/master/catch.JPG?raw=true"/>
+<img src="https://github.com/GitSH-Z/First-test/blob/master/catch.JPG?raw=true" width="600px"/>
+<img src="https://github.com/GitSH-Z/First-test/blob/master/catch2.JPG?raw=true" width="600px"/>
